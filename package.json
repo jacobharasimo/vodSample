@@ -1,0 +1,14 @@
+{
+  "name": "vod-sample",
+  "version": "0.0.1",
+  "description": "Sample application to show a gallery of movies",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "author": "Jacob Harasimo",
+  "license": "ISC",
+  "devDependencies": {
+    "angular": "^1.5.5"
+  }
+}
