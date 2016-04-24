@@ -1,6 +1,7 @@
-# vod-sample
+# vod
 
-This project is shows a gallery of movies using angularJs and Bootstrap
+This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
+version 0.15.1.
 
 ## Build & development
 

@@ -1,0 +1,18 @@
+{
+  "files": [
+    "typings/browser.d.ts",
+    "typings/cc.d.ts"
+  ],
+  "compilerOptions": {
+    "sourceMap": true,
+    "module": "commonjs",
+    "target": "es5"
+  },
+  "exclude": [
+    "node_modules",
+    "bower_components",
+    "typings/main",
+    "typings/main.d.ts",
+    "/components/**/{,*/}index.ts"
+  ]
+}
