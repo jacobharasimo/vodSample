@@ -17,12 +17,15 @@ class MovieListCtrl {
   numPerPage:number = 20;
   static $inject = [
     '$routeParams',
-    'apiService'
+    'apiService',
+    'titleService'
   ];
   constructor($routeParams, apiService) {
     this.skip = parseInt($routeParams.pageId) - 1;
     this.skip = this.skip * this.numPerPage;
-    this.items = apiService.getMovies(300);
+    apiService.getMovies().then((result)=>{
+      this.items =result.Data;
+    });
   }
 
 

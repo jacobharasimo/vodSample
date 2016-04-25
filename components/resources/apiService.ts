@@ -1,17 +1,32 @@
 /// <reference path="../movie/movie.ts" />
 /// <reference path="../../typings/browser.d.ts" />
 
-class ApiService{
-  static $inject =[];
-  constructor(){}
+class ApiService {
+  static $inject = [
+    '$http',
+    '$log'
+  ];
 
-  public getMovies(count){
-    let list:Movie[] = [];
-    for (var i = 0; i < count; i++) {
-      let temp = new Movie({id: i});
-      list.push(temp);
-    }
-    return list;
+  constructor(private $http:ng.IHttpService, private $log:ng.ILogService) {
+  }
+
+  public getMovies() {
+    return this.$http({
+      method: 'GET',
+      url: '/dataSource/feed.json'
+    }).then((response)=> {
+        //success block
+        if (response.data.hasOwnProperty('Data')) {
+          (<any>response.data).Data = (<any>response.data).Data.map((item)=> {
+            return new Movie(item);
+          });
+        }
+        return response.data;
+      },
+      (response)=> {
+        $log.warn(response);
+        //error block
+      });
   }
 
 }

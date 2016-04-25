@@ -22,20 +22,18 @@ class PaginationDirectiveCtrl {
 
   public firstPagination():number {
     let result = 0;
-let offset = Math.floor(this.maxPagination / 2);
+    let offset = Math.floor(this.maxPagination / 2);
     //dont move until page 3
 
-    if(this.currentPage <= offset){
-      result =0;
+    if (this.currentPage <= offset) {
+      result = 0;
     }
-    else if (this.currentPage > offset && this.currentPage < (this.pages.length-offset)){
+    else if (this.currentPage > offset && this.currentPage < (this.pages.length - offset)) {
       result = this.currentPage - Math.floor(this.maxPagination / 2);
     }
     else {
-      result = this.pages.length -  this.maxPagination ;
+      result = this.pages.length - this.maxPagination;
     }
-
-
 
 
     return result;

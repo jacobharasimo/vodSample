@@ -8,7 +8,9 @@
 <footer>
   <div class="row">
     <div class="col-md-push-9 col-md-3">
-      <pagination class="text-right"
+      <pagination
+        ng-if="movieList.items.length"
+        class="text-right"
                   root-page="#/movies"
                   total-items="movieList.items.length"
                   items-per-page="20"

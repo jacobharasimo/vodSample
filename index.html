@@ -1,8 +1,8 @@
 <!doctype html>
-<html>
+<html ng-app="vodApp">
 <head>
   <meta charset="utf-8">
-  <title>VOD</title>
+  <title ng-bind="Title.titleService.getTitle()"></title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="/styles/main.css">
   <!-- endbuild -->
 </head>
-<body ng-app="vodApp" class="app">
+<body class="app">
 
 <header>
   <div class="navbar navbar-default navbar-fixed-top">
@@ -52,7 +52,8 @@
 <script src="components/movie/movieDirective.js"></script>
 <script src="components/pagination/paginationDirective.js"></script>
 <script src="components/filters/startFilter.js"></script>
-
+<script src="components/title/titleDirective.js"></script>
+<script src="components/title/titleService.js"></script>
 <script src="components/pagination/page.js"></script>
 <script src="components/movie/movie.js"></script>
 

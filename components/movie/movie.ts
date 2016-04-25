@@ -7,7 +7,8 @@ id:number;
 class Movie implements  IMovie{
   id:number;
   constructor(movie){
-    this.id=movie.id;
+    movie = movie.Item;
+    this.id=movie.Id;
   }
 
 }
