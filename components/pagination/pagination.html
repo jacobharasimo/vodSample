@@ -1,32 +1,29 @@
+<nav>
+  <ul class="pagination">
+    <li>
+      <a ng-href="{{Pagination.rootPage}}" aria-label="First">
+        <i class="glyphicon glyphicon-step-backward" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li>
+      <a href="#" aria-label="Previous">
+        <i class="glyphicon glyphicon-chevron-left" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li ng-class="{'active':Pagination.isActive(page)}" ng-repeat="page in Pagination.pages">
+      <a ng-href="{{page.link}}" ng-bind="page.text"></a>
+    </li>
+    <!--for each page-->
 
-    <nav>
-      <ul class="pagination">
-        <li>
-          <a ng-href="{{Pagination.rootPage}}" aria-label="First">
-            <i class="glyphicon glyphicon-step-backward" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li>
-          <a href="#" aria-label="Previous">
-            <i class="glyphicon glyphicon-chevron-left" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li ng-class="{'active':Pagination.isActive(page)}" ng-repeat="page in Pagination.pages">
-          <a ng-href="{{page.link}}" ng-bind="page.text"></a>
-        </li>
-        <!--for each page-->
-
-        <li>
-          <a href="#" aria-label="Next">
-            <i class="glyphicon glyphicon-chevron-right" aria-hidden="true"></i>
-          </a>
-        </li>
-        <li>
-          <a href="#" aria-label="Last">
-            <i class="glyphicon glyphicon-step-forward" aria-hidden="true"></i>
-          </a>
-        </li>
-      </ul>
-    </nav>
-
-
+    <li>
+      <a href="#" aria-label="Next">
+        <i class="glyphicon glyphicon-chevron-right" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li>
+      <a ng-href="{{Pagination.rootPage+'/'+Pagination.pages.length}}" aria-label="Last">
+        <i class="glyphicon glyphicon-step-forward" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</nav>

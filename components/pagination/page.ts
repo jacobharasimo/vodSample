@@ -17,7 +17,7 @@ class Page implements IPage{
   constructor(number, rootPage) {
     //correct for array OBO
     number++;
-    this.link = rootPage+'?page='+number;
+    this.link = rootPage+'/'+number;
     this.id=number;
     this.text = number.toString();
   }

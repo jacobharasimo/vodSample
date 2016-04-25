@@ -21,7 +21,7 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/movies?page=:pageId', {
+      .when('/movies/:pageId?', {
         templateUrl: '/components/movies/movieList.html',
         controller: 'movieListCtrl',
         controllerAs: 'movieList'

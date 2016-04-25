@@ -1,15 +1,6 @@
 <div class="row">
-  <div class="col-md-3">
-    <movie></movie>
-  </div>
-  <div class="col-md-3">
-    <movie></movie>
-  </div>
-  <div class="col-md-3">
-    <movie></movie>
-  </div>
-  <div class="col-md-3">
-    <movie></movie>
+  <div ng-repeat="movie in movieList.items |start:10|limitTo:20" class="col-md-3">
+    <movie movie="movie"></movie>
   </div>
 </div>
 

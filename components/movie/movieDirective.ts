@@ -2,7 +2,6 @@
 
 class MovieDirectiveCtrl {
 
-
 }
 
 class MovieDirective implements ng.IDirective {
@@ -15,7 +14,9 @@ class MovieDirective implements ng.IDirective {
 
   restrict = 'E';
   replace = false;
-  bindToController ={};
+  bindToController ={
+    movie:'='
+  };
   scope = true;
   controller = MovieDirectiveCtrl;
   controllerAs = 'Movie';

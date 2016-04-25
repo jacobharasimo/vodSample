@@ -15,7 +15,7 @@ class PaginationDirectiveCtrl {
     '$routeParams'
   ];
   constructor(private $location, private $routeParams) {
-    this.currentPage = 1;
+    this.currentPage = parseInt($routeParams.pageId||1);
     this.pages = this.createPages();
   }
 
@@ -28,17 +28,7 @@ class PaginationDirectiveCtrl {
   }
 
   public isActive(page:IPage){
-    let queryStringPage = parseInt(this.$location.search().page);
-    if(!isNaN(queryStringPage)){
-      if(queryStringPage===page.id){
-        return true;
-      }
-    }else{
-      if(page.id===1){
-        return true;
-      }
-    }
-    return false;
+    return this.currentPage === page.id;
   }
 }
 
