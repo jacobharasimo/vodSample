@@ -1,10 +1,16 @@
+.full-width {
+  height:100%;
+  width:100%;
+  object-fit: contain;
+  display:block;
+}
 
-.pagination > li > a{
+.pagination > li > a {
   min-width: 3em;
   text-align: center;
 }
-.pagination > li > button{
 
+.pagination > li > button {
   position: relative;
   float: left;
   padding: 6px 12px;
@@ -22,40 +28,102 @@ body, html {
   overflow-x: hidden;
   background: #323232;
 }
-header{
-  .navbar-default{
-    background:transparent;
-    border:none;
-    color:#fff;
+
+header {
+  .navbar-default {
+    background: transparent;
+    border: none;
+    color: #fff;
     display: block;
   }
 
 }
-main{
-  padding-top:70px;
-}
 
+.block{
+  display:block;
+}
 footer {
-  padding:2em;
-  position: absolute;
+  padding: 15px;
+  position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: transparent;
-  .pagination{
-    margin:0;
+  left: 0;
+  background-color: rgba(0, 0, 0, .75);
+
+  .pagination {
+    margin: 0;
   }
 }
-.app{
+
+.app {
   height: auto;
   min-height: 100%;
   width: 100%;
   position: relative;
 }
 
+pagination {
+  display: block;
+}
 
-pagination{
-  display:block;
+movie {
+  display: block;
+  position: relative;
+  a.asset-link{
+    position: relative;
+    .meta-data{
+      color:white;
+      transition: top 300ms ease-in-out;
+      opacity:0;
+      display: block;
+      position: absolute;
+      width:100%;
+      left: 1em;
+      padding: 15px;
+      top: 100%;
+      bottom:-50px;
+      background: rgba(0, 0, 0, 0.75);
+    }
+    &:hover{
+      .meta-data{
+        opacity:1;
+        top: 60%;
+      }
+    }
+  }
 }
-movie{
-  display:block;
+
+.flex-grid{
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  align-content:space-around;
+  position: relative;
+
 }
+.flex-item{
+  flex-grow:1;
+  flex-shrink: 0;
+  flex-basis: 25%;
+  align-self:auto;
+  overflow:hidden;
+}
+.panel-movie{
+  border:none;
+  margin-bottom:0;
+  .panel-body{
+    padding:0;
+  }
+}
+
+.expand-hover{
+  opacity:.8;
+  transition: all 300ms ease-in-out;
+  &:hover{
+    opacity:1;
+    transform: scale(1.1);
+  }
+}
+

@@ -1,5 +1,7 @@
-<div class="panel panel-default">
-  <div class="panel-body">
-    MOVIE_{{Movie.movie.id}}
+<a ng-href="{{Movie.item.assetLink()}}" class="expand-hover asset-link block">
+    <img class="full-width" ng-src="{{Movie.item.coverAsset()}}"/>
+  <div class="meta-data">
+    <h2>{{Movie.item.title}} <span>({{Movie.item.releaseYear}})</span></h2>
+    Duration {{Movie.item.duration}}min
   </div>
-</div>
+</a>

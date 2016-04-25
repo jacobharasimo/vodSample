@@ -24,7 +24,7 @@ class ApiService {
         return response.data;
       },
       (response)=> {
-        $log.warn(response);
+        this.$log.warn(response);
         //error block
       });
   }
