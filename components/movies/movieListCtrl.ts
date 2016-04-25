@@ -16,22 +16,15 @@ class MovieListCtrl {
   items:Movie[];
   numPerPage:number = 20;
   static $inject = [
-    '$routeParams'
+    '$routeParams',
+    'apiService'
   ];
-  constructor($routeParams) {
+  constructor($routeParams, apiService) {
     this.skip = parseInt($routeParams.pageId) - 1;
     this.skip = this.skip * this.numPerPage;
-    this.items = this.getMovies(80);
+    this.items = apiService.getMovies(300);
   }
 
-  private getMovies(count) {
-    let list:Movie[] = [];
-    for (var i = 0; i < count; i++) {
-      let temp = new Movie({id: i});
-      list.push(temp);
-    }
-    return list;
-  }
 
 }
 

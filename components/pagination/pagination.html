@@ -1,29 +1,43 @@
-<nav>
-  <ul class="pagination">
+<nav data-first="{{Pagination.firstPagination()}}">
+  <ol class="pagination">
     <li>
-      <a ng-href="{{Pagination.rootPage}}" aria-label="First">
+      <button type="button" class="btn"
+              ng-click="Pagination.goTo(Pagination.rootPage)"
+              ng-disabled="Pagination.disablePreviousPage()"
+              aria-label="First">
         <i class="glyphicon glyphicon-step-backward" aria-hidden="true"></i>
-      </a>
+      </button>
     </li>
     <li>
-      <a href="#" aria-label="Previous">
+      <button type="button" class="btn"
+              ng-click="Pagination.goTo(Pagination.previousPage())"
+              ng-disabled="Pagination.disablePreviousPage()"
+              aria-label="Previous">
         <i class="glyphicon glyphicon-chevron-left" aria-hidden="true"></i>
-      </a>
+      </button>
     </li>
-    <li ng-class="{'active':Pagination.isActive(page)}" ng-repeat="page in Pagination.pages">
+
+    <li ng-class="{'active':Pagination.isActive(page)}"
+        ng-repeat="page in Pagination.pages|start:Pagination.firstPagination()|limitTo:Pagination.maxPagination">
       <a ng-href="{{page.link}}" ng-bind="page.text"></a>
     </li>
     <!--for each page-->
 
     <li>
-      <a href="#" aria-label="Next">
+      <button type="button" class="btn"
+              ng-click="Pagination.goTo(Pagination.nextPage())"
+              ng-disabled="Pagination.disableNextPage()"
+              aria-label="Next">
         <i class="glyphicon glyphicon-chevron-right" aria-hidden="true"></i>
-      </a>
+      </button>
     </li>
     <li>
-      <a ng-href="{{Pagination.rootPage+'/'+Pagination.pages.length}}" aria-label="Last">
+      <button type="button" class="btn"
+              ng-click="Pagination.goTo(Pagination.rootPage+'/'+Pagination.pages.length)"
+              ng-disabled="Pagination.disableNextPage()"
+              aria-label="Last">
         <i class="glyphicon glyphicon-step-forward" aria-hidden="true"></i>
-      </a>
+      </button>
     </li>
-  </ul>
+  </ol>
 </nav>
