@@ -3,16 +3,15 @@
 
 /**
  * @ngdoc function
- * @name vodApp.controller:MainCtrl
+ * @name vodApp.controller:MovieListCtrl
  * @description
  * # MainCtrl
  * Controller of the vodApp
  */
+
+function MovieListCtrl() {
+  this.items =[];
+}
+
 angular.module('vodApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('movieListCtrl', MovieListCtrl);

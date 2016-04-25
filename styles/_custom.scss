@@ -1,0 +1,43 @@
+body, html {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background: #323232;
+}
+header{
+  .navbar-default{
+    background:transparent;
+    border:none;
+    color:#fff;
+    display: block;
+  }
+
+}
+main{
+  padding-top:70px;
+}
+
+footer {
+  padding:2em;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: transparent;
+  .pagination{
+    margin:0;
+  }
+}
+.app{
+  height: auto;
+  min-height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+
+pagination{
+  display:block;
+}
+movie{
+  display:block;
+}

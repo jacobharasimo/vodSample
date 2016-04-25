@@ -21,12 +21,12 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+      .when('/movies', {
+        templateUrl: '/components/movies/movieList.html',
+        controller: 'movieListCtrl',
+        controllerAs: 'movieList'
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/movies'
       });
   });
