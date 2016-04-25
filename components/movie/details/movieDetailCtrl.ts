@@ -3,15 +3,15 @@
 
 /**
  * @ngdoc function
- * @name vodApp.controller:MovieListCtrl
+ * @name vodApp.controller:MovieDetailCtrl
  * @description
- * # MovieListCtrl
+ * # MovieDetailCtrl
  * Controller of the vodApp
  */
 
-function MovieListCtrl() {
-  this.items =[];
+function MovieDetailCtrl() {
+
 }
 
 angular.module('vodApp')
-  .controller('movieListCtrl', MovieListCtrl);
+  .controller('movieDetailCtrl', MovieDetailCtrl);

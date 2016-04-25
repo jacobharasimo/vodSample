@@ -21,10 +21,15 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/movies', {
+      .when('/movies?page=:pageId', {
         templateUrl: '/components/movies/movieList.html',
         controller: 'movieListCtrl',
         controllerAs: 'movieList'
+      })
+      .when('/movie/:movieId', {
+        templateUrl: '/components/movie/details/movieDetail.html',
+        controller: 'movieDetailCtrl',
+        controllerAs: 'movie'
       })
       .otherwise({
         redirectTo: '/movies'

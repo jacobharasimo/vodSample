@@ -11,9 +11,10 @@ class PaginationDirectiveCtrl {
   pages:Page[];
 
   static $inject=[
-    '$location'
+    '$location',
+    '$routeParams'
   ];
-  constructor(private $location) {
+  constructor(private $location, private $routeParams) {
     this.currentPage = 1;
     this.pages = this.createPages();
   }
