@@ -1,9 +1,4 @@
 /// <reference path="../../typings/browser.d.ts" />
-
-interface IMovie{
-id:number;
-}
-
 class MetaValue{
   label:string;
   value:string;
@@ -22,12 +17,13 @@ class MovieMeta{
   }
 }
 
-class Movie implements  IMovie{
+class Movie{
   id:number;
   images:Array<any>;
   title:string;
   meta:MovieMeta;
-
+  description:string;
+  directors:string[];
 
   constructor(movie){
     movie = movie.Item;
@@ -35,6 +31,8 @@ class Movie implements  IMovie{
     this.images = movie.Images;
     this.title = movie.Title;
     this.meta= new MovieMeta(movie);
+    this.description= movie.ShortSynopsis;
+    this.directors = movie.Directors;
   }
 
   public assetLink():string{

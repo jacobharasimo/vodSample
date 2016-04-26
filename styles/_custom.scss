@@ -4,6 +4,14 @@ body{
 select,input{
   color:#323232
 }
+img{position:relative;}
+.embed-video{
+  z-index: 1;
+  max-width: 100%;
+}
+.top-gap{
+  padding-top:1em;
+}
 .image-overlay.full-screen{
   height:100%;
   width:100%;
