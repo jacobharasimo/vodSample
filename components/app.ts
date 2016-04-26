@@ -24,8 +24,7 @@ angular
       .when('/movies/:pageId', {
         templateUrl: '/components/movies/movieList.html',
         controller: 'movieListCtrl',
-        controllerAs: 'movieList',
-        reloadOnSearch:false
+        controllerAs: 'movieList'
       })
       .when('/movie/:movieId', {
         templateUrl: '/components/movie/details/movieDetail.html',
