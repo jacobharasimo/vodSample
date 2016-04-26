@@ -36,7 +36,6 @@ header {
     color: #fff;
     display: block;
   }
-
 }
 
 .block {
@@ -50,7 +49,6 @@ footer {
   width: 100%;
   left: 0;
   background-color: rgba(0, 0, 0, .75);
-
   .pagination {
     margin: 0;
   }
@@ -85,21 +83,19 @@ movie {
       bottom: -25%;
       background: rgba(0, 0, 0, 0.75);
     }
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       .meta-data {
         opacity: 1;
-        top: calc(100%/2);
-
+        top: calc(100% / 2);
         /* Small devices (tablets, 768px and up) */
         @media (min-width: $screen-sm-min) {
           top: calc(100% / 1.9);
         }
-
         /* Medium devices (desktops, 992px and up) */
         @media (min-width: $screen-md-min) {
           top: calc(100% / 1.7);
         }
-
         /* Large devices (large desktops, 1200px and up) */
         @media (min-width: $screen-lg-min) {
           top: calc(100% / 1.6);
@@ -130,19 +126,16 @@ movie {
     flex-basis: calc(100% / 2);
     max-width: calc(100% / 2);
   }
-
   /* Medium devices (desktops, 992px and up) */
   @media (min-width: $screen-md-min) {
     flex-basis: calc(100% / 3);
     max-width: calc(100% / 3);
   }
-
   /* Large devices (large desktops, 1200px and up) */
   @media (min-width: $screen-lg-min) {
     flex-basis: calc(100% / 4);
     max-width: calc(100% / 4);
   }
-
 }
 
 .panel-movie {
@@ -156,9 +149,9 @@ movie {
 .expand-hover {
   opacity: .8;
   transition: all 300ms ease-in-out;
-  &:hover {
+  &:hover,
+  &:focus {
     opacity: 1;
     transform: scale(1.1);
   }
 }
-
