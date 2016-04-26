@@ -4,31 +4,26 @@
 class ApiService {
   static $inject = [
     '$http',
-    '$log'
+    '$log',
+    '$resource'
   ];
 
-  constructor(private $http:ng.IHttpService, private $log:ng.ILogService) {
-  }
-
-  public getMovies() {
-    return this.$http({
-      method: 'GET',
-      url: '/dataSource/feed.json'
-    }).then((response)=> {
-        //success block
-        if (response.data.hasOwnProperty('Data')) {
-          (<any>response.data).Data = (<any>response.data).Data.map((item)=> {
-            return new Movie(item);
-          });
+  constructor(private $http:ng.IHttpService, private $log:ng.ILogService, private $resource) {
+    return this.$resource('/dataSource/feed.json', {}, {
+      getMovies: {
+        method: 'GET',
+        transformResponse: (response)=> {
+          response = angular.fromJson(response);
+          if (response.hasOwnProperty('Data')) {
+            response.Data = response.Data.map((item)=> {
+              return new Movie(item);
+            });
+          }
+          return response;
         }
-        return response.data;
-      },
-      (response)=> {
-        this.$log.warn(response);
-        //error block
-      });
+      }
+    });
   }
-
 }
 
 angular.module('vodApp')

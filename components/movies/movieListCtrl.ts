@@ -20,12 +20,12 @@ class MovieListCtrl {
     'apiService',
     'titleService'
   ];
-  constructor($routeParams, apiService) {
+
+  constructor($routeParams, apiService, titleService) {
+    titleService.setTitle('Movie List');
     this.skip = parseInt($routeParams.pageId) - 1;
     this.skip = this.skip * this.numPerPage;
-    apiService.getMovies().then((result)=>{
-      this.items =result.Data;
-    });
+    this.items = apiService.getMovies();
   }
 
 

@@ -1,6 +1,6 @@
 <div class="row">
   <div class="flex-grid">
-    <div class="flex-item" ng-repeat="movie in movieList.items | start:movieList.skip | limitTo:movieList.numPerPage"
+    <div class="flex-item" ng-repeat="movie in movieList.items.Data | start:movieList.skip | limitTo:movieList.numPerPage"
          class="col-md-3">
       <movie item="movie"></movie>
     </div>
@@ -23,12 +23,12 @@
     </div>
     <div class="col-md-push-6 col-md-3">
       <pagination
-        ng-if="movieList.items.length"
+        ng-if="movieList.items.Data.length"
         class="text-right"
         root-page="#/movies"
-        total-items="movieList.items.length"
+        total-items="movieList.items.Data.length"
         items-per-page="20"
-        max-pagination="4"></pagination>
+        max-pagination="3"></pagination>
     </div>
   </div>
 </footer>

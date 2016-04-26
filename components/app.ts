@@ -29,7 +29,7 @@ angular
       .when('/movie/:movieId', {
         templateUrl: '/components/movie/details/movieDetail.html',
         controller: 'movieDetailCtrl',
-        controllerAs: 'movie'
+        controllerAs: 'details'
       })
       .otherwise({
         redirectTo: '/movies'
