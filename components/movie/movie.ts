@@ -4,20 +4,37 @@ interface IMovie{
 id:number;
 }
 
+class MetaValue{
+  label:string;
+  value:string;
+  constructor(label,value){
+    this.label = label;
+    this.value = value;
+  }
+}
+
+class MovieMeta{
+  duration:MetaValue;
+  releaseYear:MetaValue;
+  constructor(movie){
+    this.releaseYear = new MetaValue('Year',parseInt(movie.ReleaseYear));
+    this.duration = new MetaValue('Duration',Math.ceil(movie.RunTimeSec/60)+'min');
+  }
+}
+
 class Movie implements  IMovie{
   id:number;
   images:Array<any>;
   title:string;
-  duration:number;
-  releaseYear:number;
+  meta:MovieMeta;
+
 
   constructor(movie){
     movie = movie.Item;
     this.id=movie.Id;
     this.images = movie.Images;
     this.title = movie.Title;
-    this.releaseYear = parseInt(movie.ReleaseYear);
-    this.duration = Math.ceil(movie.RunTimeSec/60);
+    this.meta= new MovieMeta(movie);
   }
 
   public assetLink():string{

@@ -1,3 +1,6 @@
-DETAIL VIEW
-
-{{details}}
+<div class="image-overlay full-screen" style="background-image:url({{details.movie.coverAsset()}})"></div>
+<h1 ng-bind="details.movie.title"></h1>
+<ul class="list-unstyled" ng-repeat="meta in details.movie.meta">
+  <li>{{meta.label}}: {{meta.value}}</li>
+</ul>
+<div ng-bind-html="details.movie.description"></div>

@@ -4,6 +4,18 @@ body{
 select,input{
   color:#323232
 }
+.image-overlay.full-screen{
+  height:100%;
+  width:100%;
+  position: fixed;
+  top:0;
+  left:0;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size:cover;
+  z-index:0;
+  opacity:.2;
+}
 .full-width {
   height: 100%;
   width: 100%;
