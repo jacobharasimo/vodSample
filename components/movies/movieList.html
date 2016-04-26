@@ -9,14 +9,26 @@
 
 <footer>
   <div class="row">
-    <div class="col-md-push-9 col-md-3">
+    <div class="col-md-3">
+      <div class="form-group form-inline no-bottom">
+        <label>
+          <span style="color:white;">Sort Order:</span>
+          <select>
+            <option value="title">Title</option>
+            <option value="year">Release Year</option>
+            <option value="duration">Duration</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <div class="col-md-push-6 col-md-3">
       <pagination
         ng-if="movieList.items.length"
         class="text-right"
-                  root-page="#/movies"
-                  total-items="movieList.items.length"
-                  items-per-page="20"
-                  max-pagination="4"></pagination>
+        root-page="#/movies"
+        total-items="movieList.items.length"
+        items-per-page="20"
+        max-pagination="4"></pagination>
     </div>
   </div>
 </footer>

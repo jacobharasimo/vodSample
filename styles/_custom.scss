@@ -138,12 +138,19 @@ movie {
   }
 }
 
+select{
+  height:34px;
+}
+
 .panel-movie {
   border: none;
   margin-bottom: 0;
   .panel-body {
     padding: 0;
   }
+}
+.no-bottom{
+  margin-bottom: 0;
 }
 
 .expand-hover {
