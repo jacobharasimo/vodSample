@@ -1,7 +1,7 @@
 <div class="image-overlay full-screen" style="background-image:url({{details.movie.coverAsset()}})"></div>
 <div class="row top-gap">
   <div class="col-md-12">
-    <h1 ng-bind="details.movie.title"></h1>
+    <h1>{{details.movie.title}}<small ng-if="details.movie.releaseYear"> ({{details.movie.releaseYear}})</small></h1>
   </div>
   <div class="col-md-12">
     <!--This is just a placeholder where a video asset would be so the video can be played -->
@@ -10,7 +10,7 @@
   <div class="col-md-12">
     <ul class="list-unstyled top-gap">
       <li ng-i="details.movie.directors">Directors: {{details.movie.directors.join(', ')}}</li>
-      <li ng-repeat="meta in details.movie.meta">{{meta.label}}: {{meta.value}}</li>
+      <li>Duration: {{details.movie.duration}}min</li>
     </ul>
     <div ng-bind-html="details.movie.description"></div>
   </div>

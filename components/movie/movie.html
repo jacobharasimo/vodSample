@@ -1,7 +1,7 @@
 <a ng-href="{{Movie.item.assetLink()}}" class="expand-hover asset-link block">
     <img class="full-width" ng-src="{{Movie.item.coverAsset()}}"/>
   <div class="meta-data">
-    <h2>{{Movie.item.title}} <small ng-if="Movie.item.meta.releaseYear.value">({{Movie.item.meta.releaseYear.value}})</small></h2>
-    {{Movie.item.meta.duration.label}} {{Movie.item.meta.duration.value}}
+    <h2>{{Movie.item.title}} <small ng-if="Movie.item.releaseYear">({{Movie.item.releaseYear}})</small></h2>
+    Duration {{Movie.item.duration}}min
   </div>
 </a>

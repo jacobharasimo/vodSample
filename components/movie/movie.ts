@@ -1,27 +1,11 @@
 /// <reference path="../../typings/browser.d.ts" />
-class MetaValue{
-  label:string;
-  value:string;
-  constructor(label,value){
-    this.label = label;
-    this.value = value;
-  }
-}
-
-class MovieMeta{
-  duration:MetaValue;
-  releaseYear:MetaValue;
-  constructor(movie){
-    this.releaseYear = new MetaValue('Year',parseInt(movie.ReleaseYear));
-    this.duration = new MetaValue('Duration',Math.ceil(movie.RunTimeSec/60)+'min');
-  }
-}
 
 class Movie{
   id:number;
   images:Array<any>;
   title:string;
-  meta:MovieMeta;
+  releaseYear:number;
+  duration:number;
   description:string;
   directors:string[];
 
@@ -30,7 +14,8 @@ class Movie{
     this.id=movie.Id;
     this.images = movie.Images;
     this.title = movie.Title;
-    this.meta= new MovieMeta(movie);
+    this.releaseYear = parseInt(movie.ReleaseYear);
+    this.duration = Math.ceil(movie.RunTimeSec/60);
     this.description= movie.ShortSynopsis;
     this.directors = movie.Directors;
   }
