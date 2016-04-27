@@ -4,12 +4,10 @@ This project is generated with [yo angular generator](https://github.com/yeoman/
 version 0.15.1.
 
 ## Build & development
-This site requires Ruby and Compass to compile SCSS into CSS.  
-Ruby: 
-Compass:
+Site is built with "node": ">=5.4.0", "npm": ">=3.4.0"  
+
+This site requires Ruby and Compass to compile SCSS into CSS.    
+Ruby: https://www.ruby-lang.org/en/downloads/  
+Compass: http://compass-style.org/install/  
 
 Run `npm install` for building and `grunt serve` for preview.
-
-## Testing
-
-Running `grunt test` will run the unit tests with karma.
