@@ -9,14 +9,18 @@ class PaginationDirectiveCtrl {
   maxPagination:number;
   currentPage:number;
   pages:Page[];
-
+  numPerPage:number = 20;
+  orderBy:string;
   static $inject = [
     '$location',
     '$routeParams'
   ];
 
   constructor(private $location, private $routeParams) {
-    this.currentPage = parseInt($routeParams.pageId || 1);
+
+    this.currentPage = (parseInt($routeParams.skip)/this.numPerPage) || 0;
+    this.orderBy = $routeParams.orderBy;
+    ++this.currentPage;
     this.pages = this.createPages();
   }
 
@@ -39,9 +43,20 @@ class PaginationDirectiveCtrl {
     return result;
   }
 
+  public createLink(skip){
+   let view = '/movies/'+this.$routeParams.orderBy;
+    if(skip>0){
+      view+='/'+skip;
+    }
+    return view;
+  }
   public goTo(view):void {
     view = view.split('#')[1];
-    this.$location.path(view);
+    this.$location.search(view);
+  }
+
+  public changePage(pageId):void{
+    this.$location.search('skip',pageId);
   }
 
   public disableNextPage():boolean {
@@ -52,23 +67,23 @@ class PaginationDirectiveCtrl {
     return !(this.currentPage > 1 && this.pages.length > 1);
   }
 
-  public nextPage():string {
-    return this.rootPage + '/' + (this.currentPage + 1);
+  public nextPage():number {
+    return this.currentPage + 1;
   }
 
-  public previousPage():string {
-    return this.rootPage + '/' + (this.currentPage - 1);
+  public previousPage():number{
+    return this.currentPage - 1;
   }
 
   public createPages():Page[] {
     let pages = [];
     for (var i = 0; i < Math.ceil(this.totalItems / this.itemsPerPage); i++) {
-      pages.push(new Page(i, this.rootPage));
+      pages.push(new Page(i));
     }
     return pages;
   }
 
-  public isActive(page:IPage):boolean {
+  public isActive(page:Page):boolean {
     return this.currentPage === page.id;
   }
 }

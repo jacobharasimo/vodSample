@@ -25,21 +25,13 @@ class MovieListCtrl {
 
   constructor($routeParams, apiService, titleService, private $location) {
     titleService.setTitle('Movie List');
-    if($routeParams.orderBy){
-      this.orderBy = $routeParams.orderBy;
-    } else{
-      this.orderBy = 'title';
-    }
-
-    this.skip = parseInt($routeParams.pageId) - 1;
-    this.skip = this.skip * this.numPerPage;
+    this.orderBy = $routeParams.orderBy || 'title';
+    this.skip = $routeParams.skip;
     this.items = apiService.getMovies();
   }
   sort(orderBy){
-    this.$location.search('orderBy',orderBy);
+    this.$location.path('movies/'+orderBy);
   }
-
-
 }
 
 angular.module('vodApp')

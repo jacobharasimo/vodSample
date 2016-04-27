@@ -1,23 +1,16 @@
 /// <reference path="../../typings/browser.d.ts" />
 
-interface IPage{
-  link:string;
+class Page{
+  skip:number;
   text:string;
   id:number;
-}
-
-
-class Page implements IPage{
-  link:string;
-  text:string;
-  id:number;
+  numPerPage:number = 20;
   static $inject =[
-
   ];
-  constructor(number, rootPage) {
+  constructor(number) {
     //correct for array OBO
-    number++;
-    this.link = rootPage+'/'+number;
+    this.skip = number*this.numPerPage;
+    ++number;
     this.id=number;
     this.text = number.toString();
   }

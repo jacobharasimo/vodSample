@@ -21,7 +21,7 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/movies/:pageId', {
+      .when('/movies/:orderBy/:skip?', {
         templateUrl: '/components/movies/movieList.html',
         controller: 'movieListCtrl',
         controllerAs: 'movieList'
@@ -32,6 +32,6 @@ angular
         controllerAs: 'details'
       })
       .otherwise({
-        redirectTo: '/movies'
+        redirectTo: '/movies/title'
       });
   });

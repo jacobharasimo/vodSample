@@ -1,4 +1,4 @@
-<nav data-first="{{Pagination.firstPagination()}}">
+<nav>
   <ol class="pagination">
     <li>
       <button type="button" class="btn"
@@ -10,7 +10,7 @@
     </li>
     <li>
       <button type="button" class="btn"
-              ng-click="Pagination.goTo(Pagination.previousPage())"
+              ng-click="Pagination.changePage(Pagination.previousPage())"
               ng-disabled="Pagination.disablePreviousPage()"
               aria-label="Previous">
         <i class="glyphicon glyphicon-chevron-left" aria-hidden="true"></i>
@@ -19,13 +19,13 @@
 
     <li ng-class="{'active':Pagination.isActive(page)}"
         ng-repeat="page in Pagination.pages|start:Pagination.firstPagination()|limitTo:Pagination.maxPagination">
-      <a ng-href="{{page.link}}" ng-bind="page.text"></a>
+      <a ng-href="#{{Pagination.createLink(page.skip)}}" ng-bind="page.text"></a>
     </li>
     <!--for each page-->
 
     <li>
       <button type="button" class="btn"
-              ng-click="Pagination.goTo(Pagination.nextPage())"
+              ng-click="Pagination.changePage(Pagination.nextPage())"
               ng-disabled="Pagination.disableNextPage()"
               aria-label="Next">
         <i class="glyphicon glyphicon-chevron-right" aria-hidden="true"></i>
