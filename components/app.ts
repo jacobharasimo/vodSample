@@ -25,10 +25,11 @@ angular
     however since we have no loading UI right now that can make it a strange experience if live data, thus opted for
     routeParams*/
     $routeProvider
-      .when('/movies/:orderBy/:skip?', {
+      .when('/movies', {
         templateUrl: '/components/movies/movieList.html',
         controller: 'movieListCtrl',
-        controllerAs: 'movieList'
+        controllerAs: 'movieList',
+        reloadOnSearch:false
       })
       .when('/movie/:movieId', {
         templateUrl: '/components/movie/details/movieDetail.html',
@@ -36,6 +37,6 @@ angular
         controllerAs: 'details'
       })
       .otherwise({
-        redirectTo: '/movies/title'
+        redirectTo: '/movies'
       });
   });

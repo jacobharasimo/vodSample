@@ -1,6 +1,6 @@
 <div class="row">
   <div class="flex-grid">
-    <div class="flex-item" ng-repeat="movie in movieList.items.Data | start:movieList.skip | limitTo:movieList.numPerPage|orderBy:movieList.orderBy"
+    <div class="flex-item" ng-repeat="movie in movieList.items.Data | start:movieList.skipParam() | limitTo:movieList.numPerPage|orderBy:movieList.orderByParam()"
          class="col-md-3">
       <movie item="movie"></movie>
     </div>
@@ -9,19 +9,21 @@
 
 <footer>
   <div class="row">
-    <div class="col-md-3">
-      <div class="form-group form-inline no-bottom">
-        <label>
-          <span style="color:white;">Sort Order:</span>
-          <select ng-model="movieList.orderBy" ng-change="movieList.sort(movieList.orderBy)">
+    <div class="col-md-2 form-horizontal">
+      <div class="form-group no-bottom">
+        <label for="sortControl" class="col-md-4">
+          Sort Order:
+        </label>
+        <div class="col-md-8">
+          <select class="form-control " id="sortControl" ng-model="movieList.orderBy" ng-change="movieList.sort(movieList.orderBy)">
             <option value="title">Title</option>
             <option value="releaseYear">Release Year</option>
             <option value="duration">Duration</option>
           </select>
-        </label>
+        </div>
       </div>
     </div>
-    <div class="col-md-push-6 col-md-3">
+    <div class="col-md-push-7 col-md-3">
       <pagination
         ng-if="movieList.items.Data.length"
         class="text-right"

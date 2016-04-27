@@ -18,7 +18,7 @@ class PaginationDirectiveCtrl {
 
   constructor(private $location, private $routeParams) {
 
-    this.currentPage = (parseInt($routeParams.skip)/this.numPerPage) || 0;
+    this.currentPage = (parseInt($routeParams.skip) / this.numPerPage) || 0;
     this.orderBy = $routeParams.orderBy;
     ++this.currentPage;
     this.pages = this.createPages();
@@ -38,41 +38,58 @@ class PaginationDirectiveCtrl {
     else {
       result = this.pages.length - this.maxPagination;
     }
-
-
     return result;
   }
 
-  public createLink(skip){
-   let view = '/movies/'+this.$routeParams.orderBy;
-    if(skip>0){
-      view+='/'+skip;
+  private objectToQueryString(obj) {
+    let resultArray = [];
+    let result:string = '';
+    angular.forEach(obj, (value, key)=> {
+      resultArray.push(key + '=' + value);
+    });
+    if (resultArray.length) {
+      result = '?' + resultArray.join('&');
     }
+    return result;
+  }
+
+  public createLink(skip) {
+    let params = angular.copy(this.$location.search());
+    delete params.skip;
+    if (skip > 0) {
+      params.skip = skip;
+    }
+
+    let view = '/movies' + this.objectToQueryString(params);
     return view;
   }
+
   public goTo(view):void {
     view = view.split('#')[1];
     this.$location.search(view);
   }
 
-  public changePage(pageId):void{
-    this.$location.search('skip',pageId);
+  public changePage(skip):void {
+    if(skip<=0){
+      skip=null;
+    }
+    this.$location.search('skip', skip);
   }
 
   public disableNextPage():boolean {
-    return !(this.currentPage !== this.pages.length && this.pages.length > 1);
+    return !(this.getCurrentPage() !== this.pages.length && this.pages.length > 1);
   }
 
   public disablePreviousPage():boolean {
-    return !(this.currentPage > 1 && this.pages.length > 1);
+    return !(this.getCurrentPage() > 1 && this.pages.length > 1);
   }
 
   public nextPage():number {
-    return this.currentPage + 1;
+    return parseInt(this.$location.search().skip)+this.numPerPage;
   }
 
-  public previousPage():number{
-    return this.currentPage - 1;
+  public previousPage():number {
+    return parseInt(this.$location.search().skip)-this.numPerPage;
   }
 
   public createPages():Page[] {
@@ -83,8 +100,14 @@ class PaginationDirectiveCtrl {
     return pages;
   }
 
+  private getCurrentPage() {
+    let skip = (parseInt(this.$location.search().skip) / this.numPerPage) || 0;
+    return ++skip;
+  }
+
   public isActive(page:Page):boolean {
-    return this.currentPage === page.id;
+    let current = this.getCurrentPage();
+    return current === page.id;
   }
 }
 

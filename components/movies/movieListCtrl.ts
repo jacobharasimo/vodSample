@@ -12,9 +12,8 @@
 
 
 class MovieListCtrl {
-  orderBy:string;
-  skip:number;
   items:Movie[];
+  orderBy:string;
   numPerPage:number = 20;
   static $inject = [
     '$routeParams',
@@ -25,12 +24,17 @@ class MovieListCtrl {
 
   constructor($routeParams, apiService, titleService, private $location) {
     titleService.setTitle('Movie List');
-    this.orderBy = $routeParams.orderBy || 'title';
-    this.skip = $routeParams.skip;
     this.items = apiService.getMovies();
+    this.orderBy = this.$location.search().orderBy || 'title';
+  }
+  skipParam(){
+    return this.$location.search().skip || 0;
+  }
+  orderByParam(){
+    return this.$location.search().orderBy || 'title';
   }
   sort(orderBy){
-    this.$location.path('movies/'+orderBy);
+    this.$location.search('orderBy',orderBy);
   }
 }
 
