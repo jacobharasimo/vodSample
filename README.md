@@ -4,8 +4,11 @@ This project is generated with [yo angular generator](https://github.com/yeoman/
 version 0.15.1.
 
 ## Build & development
+This site requires Ruby and Compass to compile SCSS into CSS.  
+Ruby: 
+Compass:
 
-Run `grunt` for building and `grunt serve` for preview.
+Run `npm install` for building and `grunt serve` for preview.
 
 ## Testing
 
