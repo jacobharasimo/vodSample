@@ -19,11 +19,17 @@
   "appPath": ".",
   "moduleName": "vodApp",
   "suppliedDependencies": {
-    "bootstrap": true
+    "bootstrap": true,
+    "jquery": true
   },
   "overrides": {
-    "bootstrap": {
+    "jquery": {
       "ignore": true
+    },
+    "bootstrap": {
+      "dependencies": [],
+      "ignore": true
+
     },
     "bootstrap-sass": {
       "main": [
