@@ -1,7 +1,11 @@
 <a ng-href="{{Movie.item.assetLink()}}" class="expand-hover asset-link block">
-    <img class="full-width" ng-src="{{Movie.item.coverAsset()}}"/>
+  <img class="full-width" ng-src="{{Movie.item.coverAsset()}}"/>
   <div class="meta-data">
-    <h2>{{Movie.item.title}} <small ng-if="Movie.item.releaseYear">({{Movie.item.releaseYear}})</small></h2>
-    Duration {{Movie.item.duration}}min
+    <h2>{{Movie.item.title}}
+      <small ng-if="Movie.item.releaseYear">({{Movie.item.releaseYear}})</small>
+    </h2>
+    <span ng-switch="!!Movie.item.duration">
+      Duration <span ng-switch-when="true">{{Movie.item.duration}}min</span><span ng-switch-when="false">Unknown</span>
+    </span>
   </div>
 </a>

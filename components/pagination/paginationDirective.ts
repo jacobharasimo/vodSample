@@ -70,8 +70,8 @@ class PaginationDirectiveCtrl {
   }
 
   public changePage(skip):void {
-    if(skip<=0){
-      skip=null;
+    if (skip <= 0) {
+      skip = null;
     }
     this.$location.search('skip', skip);
   }
@@ -85,11 +85,14 @@ class PaginationDirectiveCtrl {
   }
 
   public nextPage():number {
-    return parseInt(this.$location.search().skip)+this.numPerPage;
+    if (isNaN(parseInt(this.$location.search().skip))) {
+      this.$location.search().skip = 0;
+    }
+    return parseInt(this.$location.search().skip) + this.numPerPage;
   }
 
   public previousPage():number {
-    return parseInt(this.$location.search().skip)-this.numPerPage;
+    return parseInt(this.$location.search().skip) - this.numPerPage;
   }
 
   public createPages():Page[] {

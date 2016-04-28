@@ -27,14 +27,17 @@ class MovieListCtrl {
     this.items = apiService.getMovies();
     this.orderBy = this.$location.search().orderBy || 'title';
   }
-  skipParam(){
+
+  skipParam() {
     return this.$location.search().skip || 0;
   }
-  orderByParam(){
+
+  orderByParam() {
     return this.$location.search().orderBy || 'title';
   }
-  sort(orderBy){
-    this.$location.search('orderBy',orderBy);
+
+  sort(orderBy) {
+    this.$location.search('orderBy', orderBy);
   }
 }
 

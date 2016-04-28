@@ -4,7 +4,8 @@ class TitleDirectiveCtrl {
   static $inject = [
     'titleService'
   ];
-  constructor(private titleService){
+
+  constructor(private titleService) {
   }
 }
 
@@ -15,9 +16,10 @@ class TitleDirective implements ng.IDirective {
     directive.$inject = [];
     return directive;
   }
+
   restrict = 'E';
   replace = false;
-  bindToController ={};
+  bindToController = {};
   scope = true;
   controller = TitleDirectiveCtrl;
   controllerAs = 'Title';

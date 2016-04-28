@@ -1,15 +1,18 @@
 /// <reference path="../../typings/browser.d.ts" />
 
-class TitleService{
-  static $inject =[];
+class TitleService {
+  static $inject = [];
   title:string;
-  constructor(){}
 
-  public setTitle(title){
+  constructor() {
+  }
+
+  public setTitle(title) {
     this.title = title;
   }
-  public getTitle(){
-    return this.title||'VOD';
+
+  public getTitle() {
+    return this.title || 'VOD';
   }
 }
 

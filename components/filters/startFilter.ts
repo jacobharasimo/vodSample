@@ -3,10 +3,10 @@
 class ArrayStartFilter {
   public static Filter() {
     let filter = () => {
-      return (input,s:number) => {
-        let result:Array<any> =[];
-        if(angular.isArray(input)){
-          result= input.slice(s);
+      return (input, s:number) => {
+        let result:Array<any> = [];
+        if (angular.isArray(input)) {
+          result = input.slice(s);
         }
         return result;
       };

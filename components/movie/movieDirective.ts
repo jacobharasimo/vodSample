@@ -1,6 +1,7 @@
 /// <reference path="../../typings/browser.d.ts" />
 
-class MovieDirectiveCtrl {}
+class MovieDirectiveCtrl {
+}
 
 class MovieDirective implements ng.IDirective {
   /*if we need to inject dependencies into the directive class we do it the following way*/
@@ -9,10 +10,11 @@ class MovieDirective implements ng.IDirective {
     directive.$inject = [];
     return directive;
   }
+
   restrict = 'E';
   replace = false;
-  bindToController ={
-    item:'='
+  bindToController = {
+    item: '='
   };
   scope = true;
   controller = MovieDirectiveCtrl;
