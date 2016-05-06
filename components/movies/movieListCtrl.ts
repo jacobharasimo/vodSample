@@ -17,13 +17,12 @@ class MovieListCtrl {
   genre:string;
   numPerPage:number = 20;
   static $inject = [
-    '$routeParams',
     'apiService',
     'titleService',
     '$location'
   ];
 
-  constructor($routeParams, apiService, titleService, private $location) {
+  constructor(apiService, titleService, private $location) {
     titleService.setTitle('Movie List');
     this.genre = decodeURIComponent($location.search().genre) || '';
     this.items = apiService.getMovies();
