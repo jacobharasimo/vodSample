@@ -33,7 +33,12 @@ class MovieListCtrl {
 
 
   filterGenre(param){
-    this.$location.search('genre',encodeURIComponent(param));
+    if(param===null){
+      delete this.$location.search('genre',null);
+    }
+    else{
+      this.$location.search('genre',encodeURIComponent(param));
+    }
   }
 
   genreParam(){
