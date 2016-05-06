@@ -8,6 +8,7 @@ class Movie {
   duration:number;
   description:string;
   directors:string[];
+  genres:string[];
 
   constructor(movie) {
     movie = movie.Item;
@@ -21,6 +22,9 @@ class Movie {
     this.releaseYear = parseInt(movie.ReleaseYear);
     this.description = movie.ShortSynopsis;
     this.directors = movie.Directors;
+    this.genres = movie.Genres.map(function(item){
+      return item.Name.toLowerCase();
+    });
   }
 
   public assetLink():string {

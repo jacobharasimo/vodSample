@@ -1,7 +1,11 @@
 <div class="row">
   <div class="flex-grid">
     <div class="flex-item"
-         ng-repeat="movie in movieList.items.Data |orderBy:movieList.orderByParam()| start:movieList.skipParam() | limitTo:movieList.numPerPage"
+         ng-repeat="movie in movieList.items.Data
+         | filter: { genres:movieList.genreParam() }
+         | orderBy : movieList.orderByParam()
+         | start : movieList.skipParam()
+         | limitTo : movieList.numPerPage"
          class="col-md-3">
       <movie item="movie"></movie>
     </div>
@@ -10,7 +14,7 @@
 
 <footer>
   <div class="row">
-    <div class="col-md-2 form-horizontal">
+    <div class="col-md-3 form-horizontal">
       <div class="form-group no-bottom">
         <label for="sortControl" class="col-md-4">
           Sort Order:
@@ -25,7 +29,22 @@
         </div>
       </div>
     </div>
-    <div class="col-md-push-7 col-md-3">
+    <div class="col-md-3 form-horizontal">
+      <div class="form-group no-bottom">
+        <label for="genresControl" class="col-md-4">
+          Genres:
+        </label>
+        <div class="col-md-8 form-horizontal">
+          <select class="form-control" id="genresControl" ng-model="movieList.genre"
+                  ng-model="movieList.genre"
+                  ng-options="item.Name as item.Name for item in movieList.items.DynamicData.Genres"
+                  ng-change="movieList.filterGenre(movieList.genre)">
+            <option value="">ALL</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-push-3 col-md-3">
       <pagination
         ng-if="movieList.items.Data.length"
         class="text-right"

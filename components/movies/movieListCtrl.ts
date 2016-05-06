@@ -14,6 +14,7 @@
 class MovieListCtrl {
   items:Movie[];
   orderBy:string;
+  genre:string;
   numPerPage:number = 20;
   static $inject = [
     '$routeParams',
@@ -24,10 +25,24 @@ class MovieListCtrl {
 
   constructor($routeParams, apiService, titleService, private $location) {
     titleService.setTitle('Movie List');
+    this.genre = decodeURIComponent($location.search().genre) || '';
     this.items = apiService.getMovies();
     this.orderBy = this.$location.search().orderBy || 'title';
+
   }
 
+
+  filterGenre(param){
+    this.$location.search('genre',encodeURIComponent(param));
+  }
+
+  genreParam(){
+    let result = '';
+    if(this.$location.search().hasOwnProperty('genre')){
+      result=decodeURIComponent(this.$location.search().genre);
+    }
+    return result.toLowerCase();
+  }
   skipParam() {
     return this.$location.search().skip || 0;
   }
