@@ -33,7 +33,7 @@
     </li>
     <li>
       <button type="button" class="btn"
-              ng-click="Pagination.goTo(Pagination.rootPage+'/'+Pagination.pages.length)"
+              ng-click="Pagination.changePage((Pagination.pages.length-1)*Pagination.numPerPage)"
               ng-disabled="Pagination.disableNextPage()"
               aria-label="Last">
         <i class="glyphicon glyphicon-step-forward" aria-hidden="true"></i>
