@@ -4,9 +4,11 @@
     <h2>{{Movie.item.title}}
       <small ng-if="Movie.item.releaseYear">({{Movie.item.releaseYear}})</small>
     </h2>
-    <span ng-switch="!!Movie.item.duration">
-      genres: {{Movie.item.genres.join(", ")}}
+    <p ng-if="Movie.item.genres.length">
+      Genres: {{Movie.item.genres.join(", ")}}
+    </p>
+    <p ng-switch="!!Movie.item.duration">
       Duration <span ng-switch-when="true">{{Movie.item.duration}}min</span><span ng-switch-when="false">Unknown</span>
-    </span>
+    </p>
   </div>
 </a>
